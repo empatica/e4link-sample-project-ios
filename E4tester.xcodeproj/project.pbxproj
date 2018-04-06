@@ -12,8 +12,8 @@
 		55591B6E1F2884AC0084CF0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55591B6C1F2884AC0084CF0C /* Main.storyboard */; };
 		55591B701F2884AC0084CF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55591B6F1F2884AC0084CF0C /* Assets.xcassets */; };
 		55591B731F2884AC0084CF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55591B711F2884AC0084CF0C /* LaunchScreen.storyboard */; };
-		59899B6B207634A900FAF40A /* E4link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59899B672076345A00FAF40A /* E4link.framework */; };
-		59899B6C207634A900FAF40A /* E4link.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59899B672076345A00FAF40A /* E4link.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59CAB61E207770890052910F /* E4link.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CAB61D207770890052910F /* E4link.framework */; };
+		59CAB626207771C30052910F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CAB625207771C30052910F /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59899B6C207634A900FAF40A /* E4link.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +37,9 @@
 		55591B6F1F2884AC0084CF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55591B721F2884AC0084CF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55591B741F2884AD0084CF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59899B672076345A00FAF40A /* E4link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = E4link.framework; path = Libs/E4link.framework; sourceTree = "<group>"; };
+		59CAB61D207770890052910F /* E4link.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = E4link.framework; path = Libs/E4link.framework; sourceTree = "<group>"; };
+		59CAB6222077716E0052910F /* E4tester-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "E4tester-Bridging-Header.h"; sourceTree = "<group>"; };
+		59CAB625207771C30052910F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59899B6B207634A900FAF40A /* E4link.framework in Frameworks */,
+				59CAB626207771C30052910F /* CoreBluetooth.framework in Frameworks */,
+				59CAB61E207770890052910F /* E4link.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +81,7 @@
 				55591B6F1F2884AC0084CF0C /* Assets.xcassets */,
 				55591B711F2884AC0084CF0C /* LaunchScreen.storyboard */,
 				55591B741F2884AD0084CF0C /* Info.plist */,
+				59CAB6222077716E0052910F /* E4tester-Bridging-Header.h */,
 			);
 			path = E4tester;
 			sourceTree = "<group>";
@@ -86,7 +89,8 @@
 		55591B961F2887C90084CF0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59899B672076345A00FAF40A /* E4link.framework */,
+				59CAB625207771C30052910F /* CoreBluetooth.framework */,
+				59CAB61D207770890052910F /* E4link.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -313,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = YES;
 				DEVELOPMENT_TEAM = KJRKB28G9Q;
 				ENABLE_BITCODE = NO;
@@ -320,13 +325,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Libs/**",
+					"$(PROJECT_DIR)/Libs",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = E4tester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Empatica.E4tester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "E4tester/E4tester-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -337,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_MODULES_AUTOLINK = YES;
 				DEVELOPMENT_TEAM = KJRKB28G9Q;
 				ENABLE_BITCODE = NO;
@@ -344,13 +355,17 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Libs/**",
+					"$(PROJECT_DIR)/Libs",
 				);
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = E4tester/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Empatica.E4tester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "E4tester/E4tester-Bridging-Header.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

@@ -4,7 +4,6 @@
 //
 
 import UIKit
-import E4link
 
 class ViewController: UITableViewController {
     

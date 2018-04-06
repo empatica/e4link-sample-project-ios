@@ -5,7 +5,6 @@
 //
 
 import UIKit
-import E4link
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
